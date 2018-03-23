@@ -1,0 +1,67 @@
+=options view-code
+
+	vh1 font-size 32 "Introduction to Blockchains: What lies beneath cryptocurrencies" shadow 2x2
+	pad 0x100
+	vh2 bold font-size 24 "Gregg Irwin (Red Language Foundation)"
+
+=== Who Am I?
+
+Developed software since 1989
+
+Built my first commercial Windows app in 1991
+
+Operational board member of the Red Language Foundation
+
+I prefer human friendly languages, and write a lot of code generators and DSLs
+
+»
+
+
+=== We'll cover...
+
+What is a blockchain, in simplistic terms
+
+What they can be used for
+
+How they work, at a high level
+
+Smart contract concepts
+
+Building a toy blockchain, ignoring the consensus aspect
+
+»
+
+
+=== What is a blockchain
+
+
+»
+
+
+=== What they can be used for
+
+
+»
+
+=== How they work, at a high level
+
+The human blockchain project
+
+
+»
+
+=== Smart contract concepts
+
+
+
+
+»
+
+=== Building a toy blockchain
+
+
+»
+
+
+###
+
