@@ -14,7 +14,7 @@ examples: [
 	call @Bob at 12:00 about deadlines .
 	email dave@vop.com on Monday regarding "TopDog contract" .
 	post %news.txt to https://my-blog-host.dom/news on 24-Mar-2018/09:30 .
-	chat on reddit .
+	chat on gitter .
 ]
 
 gitter: https://gitter.im/red/red
