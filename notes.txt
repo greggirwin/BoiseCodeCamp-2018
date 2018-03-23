@@ -1,0 +1,280 @@
+﻿Can't see what sessions are proposed so far. As always, I could talk
+about Red, DSLs, and now even blockchains (as long as nobody asks me
+to explain ECC). I could also talk about our new project, which will
+use blockchain tokens to support open source development. 
+
+
+Red
+	libRed, Macros, MacOS GUI, Blockchain
+	live coding, reactive system, OS metrics, Excel integration
+
+- Programming Languages
+- Intermediate
+
+# Language Design, Big and Small: No CS degree required
+
+- Foundational
+- Advanced
+
+Domain Specific Languages (DSLs) have been a hot topic for a number of 
+years, but is there a hard-and-fast definition? They can be embedded 
+or external, Turing-complete or delcarative. Is an API that tries to 
+look like natural language really a DSL, or just a convention?
+Why do we think DSLs should be used more, but then ask why new General 
+Purpose Languages (GPLs) are created? Are languages hard to make? What
+the heck is BNF? And how do I even get started if I've never built a 
+language before? In this session, we'll talk about types of languages,
+design, lexical analysis, parsing, and evaluation. Advanced topics will
+be discussed, but in an accessible way, as we build a small language.
+No Comp-Sci degree required.
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+# Make Your Own Little Language: Intro to Language Design
+
+- Foundational
+- Introductory
+
+- What we'll cover
+- What we won't cover
+
+
+Little languages, domain specific or problem oriented, have been around
+for a long time. If you've ever typed commands into a shell, or written
+a config file, you've used one. Are languages hard to make? How do I even
+get started? In this session, we'll build a small language to show how
+fun and easy it can be; no Comp-Sci degree required. You'll learn what 
+lexical analysis and parsing mean, what a grammar is, and the difference 
+between syntax and semantics.
+
+- CLI
+- Data/code generation
+- Contact (TouchBase)
+
+- Why build little languages
+    Figure out how you *want* you write your program, then write
+    the language that lets you do that.
+
+- Starting out: Describe your language
+    What do you want to express?
+    How do you want to say it?
+    What are the things you need to talk about?
+    How simple can you keep it?
+    What are your anchors (e.g. keywords)
+        Terminal vs non-terminals
+        values vs groups of values
+        expressions
+                
+- Syntax
+- Semantics   
+- Lexical Analysis
+- Parsing
+- Grammars
+    - How do we know if someone is speaking proper English?
+    - What are the rules?
+    - Adjective order (size color <noun>)
+        Quantity or number
+        Quality or opinion
+        Size
+        Age
+        Shape
+        Color
+        Proper adjective (often nationality, other place of origin, or material)
+        Purpose or qualifier
+    
+
+        If we don’t want to emphasise any one of the adjectives, the most usual
+        sequence of adjectives is:
+
+        order   relating to         examples
+
+        1       opinion             unusual, lovely, beautiful
+        2       size                big, small, tall
+        3       physical quality    thin, rough, untidy
+        4       shape               round, square, rectangular
+        5       age                 young, old, youthful
+        6       colour              blue, red, pink
+        7       origin              Dutch, Japanese, Turkish
+        8       material            metal, wood, plastic
+        9       type                general-purpose, four-sided, U-shaped
+        10      purpose             cleaning, hammering, cooking
+    
+- Railroad diagrams
+- ASTs (sentence diagrams)
+- Tools: Lexx Yacc Bison ANTLR
+- Math Dialect
+- Contact Dialect
+    Send someone a message, or set a reminder for yourself, about some
+    kind of contact related action to take, like sending an email, posting
+    a comment on the net, or calling someone on the phone. And you want to
+    be able to see what's coming up in some kind of list.
+    
+- | and horses at the starting gate: [ada | babbage | c-biscuit]
+    (Not sure about this. Implies parallel rather than backtracking)
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+# Introduction to Blockchains: What lies beneath cryptocurrencies and where may it lead?
+# Introduction to Blockchains: Cryptocurrency Protocols and so much more
+## Intro to Blockchains
+
+https://www.damiencosset.com/trying-understand-blockchain-making-one/
+https://cryptozombies.io/
+
+- What we'll cover
+- What we won't cover
+
+
+- Other
+- Intermediate
+
+If you've heard of Bitcoin or Ethereum, but don't know what they really
+are, or how they work, this session will explain, at a high level, the 
+almost 40-year-old technology they are built on and look at the other
+ways people are starting to use it, beyond cryptocurrencies. We'll also
+build a toy blockchain (it is Code Camp after all) so you can see one
+in action, and touch on smart contract development.
+
+Blockchain live-coded DnD 
+
+The Human Blockchain
+    - 3 people play Nodes
+        - Clipboards with paper are used to track transactions
+        - Consensus is handled verbally
+        - Have a one bad actor as a Node, who tries to slip in a new transaction, or
+          mess with an existing one. e.g. try to take money from an account.
+    - Others submit transactions
+        - Ask audience volunteer for their name and a couple other questions. From that,
+          give them an ID and tell them not to forget it, and that they have to remember
+          their key words in exact order. For most of the game, use just the last number
+          of their ID, but at the end, ask each of them for their entire ID. If they 
+          know it, give them $5.
+        - Have one bad actor in the audience, who secretly gives different info to Nodes
+
+https://lhartikk.github.io/
+https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54
+
+The blockchain network is a giant mass of nodes (computers) connected to
+one another. In fact, the entire network can be visualized as a single entity
+called the “Ethereum Virtual Machine” or EVM for short. All the transactions
+that have happened and will ever happen in this network are automatically
+updated and recorded in an open and distributed ledger. So what is the advantage
+of this? Before we explain that it is important to know what a “smart contract”
+is.
+
+Every single step in a smart contract is a transaction or a complex computation
+and would have a cost that is measured in “gas”. The price of this gas is paid
+by the requester in “Ether”. Ether is the currency with which everything runs in
+the Ethereum. When people talk about ETH and ETC they are actually talking about
+the value of the Ether in their respective blockchain.
+
+What happens when your ether supply gets depleted in the middle of the contract?
+If you do not have the ether required for all the gas payments, then all the
+transactions that have already taken place during the course will go back to the
+original state. But, your ether wallet will still reflect the change in balance
+since all transactions made in the blockchain are irreversible.
+
+-Smart contracts are how things get done in Ethereum.
+
+-Ether is the currency that is used in the Ethereum network to do anything.
+
+Think of Ethereum like the internet and all the DAPPS as websites that run in
+it. There is something really interesting about these DAPPS, they are all
+decentralized and not owned by an individual, they are owned by people. The way
+that happens is usually by a crowd-sale called the “ICO” (more on that later).
+Basically, you buy certain tokens of that DAPP in exchange of your ether.
+
+These tokens are usually of 2 varieties:
+
+-Usage Tokens.
+
+- Work Tokens.
+ 
+Usage Tokens: These are the tokens that act like native currency in their
+respective DAPPS. Golem is a pretty good example of this. If you want to use the
+services in Golem then you will need to pay with Golem Network Token (GNT).
+While these tokens have monetary value they won’t give you any particular rights
+or privilege within the network itself.
+
+Work Token: These are the tokens that identify you as a sort of shareholder in
+the DAPP. Because of that, you have a say in the direction that that DAPP takes.
+A perfect example of this is the DAO tokens. If you were a DAO token holder then
+you had the right to vote on whether a particular DAPP could get funding from
+the DAO or not.
+
+Remember that time you went to the water park? Remember how they took your money
+and tied a band around your wrist which you used to gain access to all the rides
+in the park and to buy food as well? In this example the water park is the DAPP,
+your money is ether and the band is the token.
+
+Okay, how about the time you bought those movie tickets for Wonder Woman and
+included an extra popcorn and coke in your ticket? The moment you entered the
+theater how did you get in the hall? You showed them the ticket. How did you buy
+your popcorn and coke? Again, by showing them the ticket. In this case, the
+cinema theater is the DAPP, your money is Ether and the ticket is the token.
+
+By using tokens to execute certain functions in the smart contract of the DAPPS
+you make the process much more simple and seamless.
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+## Incentivizing FOSS: Blockchain Tokenomics and Open Source
+## Using Blockchains to support FOSS
+
+- Other
+- Introductory
+
+- What we'll cover
+
+- What we won't cover
+
+
+Certain blockchains support "tokens", like a digital version of
+what you use at arcades, when you put cash in a machine and get "not real
+money" coins. Imagine if you shared your 
+tokens with people who showed you how to play a game better, mapped out 
+levels, or gave talks on how the games work. Would more people help and 
+share their knowledge? Would you? What if it helped you build reputation?
+What if you could use your tokens other places? This session is about how
+we could create this future, where contributors are compensated for code,
+bug reports, docs, help in chat, tutorials, or even Code Camp presentations.
+
+- What are blockchains
+- What are tokens?
+- Smart Contracts and project governance
+
+
+Minting means, that a token is created. The number of tokens, which are
+available, is of a fixed sized (Red has 200 Million tokens) and cannot be
+changed afterwards. No new tokens can be created or burned, once the smart
+contract for minting is executed.
+
+
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+# Introduction to Desktop Programming: How to build apps without HTML/CSS/JS
+
+# Keep it Simple; Keep it Fun: Learn You Some Programming for Great Good
+
+# Interactive Fiction, Really Interactive
+
+
+
+VIM Adventure
+Kha
+    https://youtube.com/playlist?list=PL4neAtv21WOmmR5mKb7TQvEQHpMh1h0po
+Handmade Hero
+CityboundSim

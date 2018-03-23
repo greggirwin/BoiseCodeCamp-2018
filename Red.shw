@@ -1,0 +1,150 @@
+=options view-code
+
+	vh1 font-size 32 "Red: A Full-Stack Language" shadow 2x2
+	pad 0x100
+	vh2 bold font-size 24 "Gregg Irwin (Pointillistic Software)"
+
+=== Who Am I?
+
+Developing software since 1989
+
+Specialized in Visual Basic for 11 years (It was so the 1990s)
+
+Built my first commercial Windows app in 1991
+
+Specializing in REBOL since 2002
+
+I have a predilection for human friendly languages, and write a lot of
+code generators, data transformers, and DSLs
+
+»
+
+
+=== We'll cover...
+
+What Red is, its heritage, and who is building it
+
+What a full-stack language is, and can they be built?
+
+Language Design and Syntax
+
+Demos
+
+»
+
+
+=== What is Red
+
+It's a full-stack, cross-platform, open-source, DSL-oriented, batteries-included
+dialect of Lisp/Logo with a self-hosted toolchain; all with the goal of staying
+under 1MB
+
+Alpha-stage; not production ready yet
+
+Runs on the big-3 OSs and compiles to native code, or runs interpreted, 
+for 10 target platforms
+
+Emitting Javascript would be just another platform for it
+
+Red is a direct descendant of REBOL
+
+REBOL is interpreted only, not full-stack, but they could be twins just to look at them
+
+Red is Lisp meets Forth meets Logo + more
+
+It's multi-paradigm: functional, symbolic, and prototype-based OO
+
+It has ~50 datatypes; yes, 50.
+
+»
+
+
+=== Who built it?
+
+Nenad Rakocevic, a member of the REBOL community
+
+Just him and a few volunteers here and there for 3+ years
+
+A Chinese tech incubator sponsored him in 2014 and gave him a full time assistant
+
+In January, he raised $500,000 in VC to continue development
+
+The REBOL community is behind him, and the language design is based on REBOL, by Carl Sassenrath
+
+»
+
+
+=== What is a full stack language?
+
+You can program at the hardware level, like Assembly or C
+
+You can write drivers and OSs like C or C++
+
+You can write at the OS and application level, where many languages live, including GUIs
+
+You can script with it, like Python or JS
+
+You can write DSLs, like REBOL or Ruby
+
+You can write meta-DSLs like Factor
+
+It's a language construction toolkit, with a system level dialect
+
+»
+
+
+=== Can it be done?
+
+The myth of the full stack developer
+
+Can one language rule them all?
+
+The only dependency in the current bootstrap phase is a single EXE (REBOL2)
+
+v2 will be self-hosted, with the entire toolchain written in Red
+
+It already cross-compiles native code
+
+The high level design target (REBOL) is proven
+
+»
+
+
+=== Language Design and Syntax
+
+Red/System - http://static.red-lang.org/red-system-specs.html
+
+
+
+»
+
+
+=== Basic syntax rules
+
+Use spaces to separate values
+
+Words can contain characters most other languages disallow. The only characters
+you can't use in a word are: space, linebreak, comma, [](){}":;/@#$%^
+
+The circumflex (^) is the escape character
+
+Red is case insensitive. That's a good thing; don't argue with me about it.
+
+There are (or will be) ~50 datatypes. Use them. Don't use strings for URLs, email
+or IP addresses, or tags. 
+
+--- The importance of allowing special characters
+
+Punctuation is a printer's convention; its goal is to help
+people understand what is written with minimal confusion
+and misinterpretation. Programming languages have their own
+conventions, but rarely are they designed with that same goal;
+Red is an exception.
+
+»
+
+
+=== Live Syntax Discussion and Demos
+
+###
+
