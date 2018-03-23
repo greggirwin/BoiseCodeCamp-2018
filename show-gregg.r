@@ -1,9 +1,8 @@
 REBOL [
 	Title: "Slideshow Presenter"
     Author: ["Carl Sassenrath" "Gregg Irwin"]
-	Version: 1.2.0
+	Version: 1.2.1
 	Date: 22-Mar-2018
-	Type: 'link-app
 ]
 Red []
 
