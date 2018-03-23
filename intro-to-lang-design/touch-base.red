@@ -11,29 +11,58 @@ Red [
 ]
 
 examples: [
-	call Bob at 12:00 about deadlines .
+	call @Bob at 12:00 about deadlines .
 	email dave@vop.com on Monday regarding "TopDog contract" .
 	post %news.txt to https://my-blog-host.dom/news on 24-Mar-2018/09:30 .
-	chat on gitter
+	chat on gitter .
 ]
 
 gitter: https://gitter.im/red/red
+reddit: https://www.reddit.com/r/redlang/
 
 ;-------------------------------------------------------------------------------
 
-set [who what when how] none
+set [how who when what where] none
 
-who=: [set who [word! | email! | file!]]
 
-what=: [['about | 'regarding] set what [word! | string!]]
+how=: [set how ['call | 'email | 'post | 'chat]]
+
+who=: [set who [email! | file!]]
 
 weekday=: [
 	'mon | 'tue | 'wed | 'thu | 'fri | 'sat | 'sun
 	| 'Monday | 'Tuesday | 'Wednesday | 'Thursday | 'Friday | 'Saturday | 'Sunday
 ]
-when=: [['on | 'at] set when [date! | time!]]
+when=: [
+	'on set when [date! | weekday=]
+	| 'at set when time!
+	;(print [tab '==when when])
+]
 
-how=: [set how ['call | 'email | 'post | 'chat]]
+what=: [
+	['about | 'regarding] set what [word! | string!]
+]
 
-where=: ['on ['gitter | 'reddit]]
+where=: [
+	['to set where url!]
+	| p: 'on set where ['gitter | 'reddit]
+]
 
+main-rule: [
+	some [
+		(set [how who when what where] none)
+		how= [who= when= what= | opt who= where= opt when=] '. pos: (
+		;how= [opt who= where= opt when= | who= when= what=] '. (
+			;print [how who when what where]
+			;print mold pos
+			switch how [
+				call  [print [when tab "Don't forget to call" who]]
+				email [print [when tab "Email" who "about" what]]
+				post  [print [when "I'll post" mold who  "to" where]]
+				chat  [browse get where]
+			]
+		)
+	]
+]
+
+print parse examples main-rule
