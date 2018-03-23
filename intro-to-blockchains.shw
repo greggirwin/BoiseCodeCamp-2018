@@ -1,8 +1,8 @@
 =options view-code
 
-	vh1 font-size 32 "Introduction to Blockchains: What lies beneath cryptocurrencies" shadow 2x2
-	pad 0x100
-	vh2 bold font-size 24 "Gregg Irwin (Red Language Foundation)"
+    vh1 font-size 32 "Introduction to Blockchains: What lies beneath cryptocurrencies" shadow 2x2
+    pad 0x100
+    vh2 bold font-size 24 "Gregg Irwin (Red Language Foundation)"
 
 === Who Am I?
 
@@ -23,37 +23,65 @@ What is a blockchain, in simplistic terms
 
 What they can be used for
 
-How they work, at a high level
-
 Smart contract concepts
 
-Building a toy blockchain, ignoring the consensus aspect
+Building a toy blockchain, ignoring proof and consensus aspects
 
 »
 
 
 === What is a blockchain
 
+Generally, blockchains are a distributed tamper-proof ledger
+
+Technically, they are an append-only hash tree
+
+More technically, they are a chain of blocks, which each contain batches of
+transactions, that a form Merkle tree; specifics vary, and there are hybrids
+
+There is no guarantee that an entry will live forever, but the longer something
+lives, the better chance it has of surviving. See: Orphan Blocks
+
+The human blockchain project
 
 »
 
 
 === What they can be used for
 
+Anything. Really. But that doesn't mean they're good for everything.
+
+Currency, identity, reputation, rights and licensing, micropayments, supply
+chain management, legal contracts, version control, file systems, ...
+
+Think of them like big spreadsheets.
+
+Imagine data-backed protocols. We have TCP, UDP, EPGM, HTTP, MQTT, etc. Now
+consider an extensible IMAP.
+
+Different blockchains have different goals: [security privacy performance ...]
+
 
 »
 
-=== How they work, at a high level
-
-The human blockchain project
-
-
-»
 
 === Smart contract concepts
 
+Smart contracts are ledger entries containing code. To call a 
+contract function, you need the contract's address and ABI.
 
+The code executed runs on a blockchain's VM, and you pay for every
+instruction executed (with ETH "gas"), which you can limit
 
+Every transaction is recorded on the blockchain
+
+Dapps (Distributed Apps) are just programs that call blockchain
+functions and use blockchain assets
+
+The blockchain provides the "Distributed" part
+
+Smart contracts can trigger based on events or conditions, and 
+may access off-blockchain data, called oracles
 
 »
 
@@ -65,3 +93,4 @@ The human blockchain project
 
 ###
 
+https://medium.com/metamask/calling-a-smart-contract-with-a-button-d278b1e76705

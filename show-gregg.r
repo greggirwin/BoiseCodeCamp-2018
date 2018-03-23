@@ -283,10 +283,12 @@ show-page: func [i /local blk shown?][
 			code [append layo compose/deep [
 				indent 40
 				pnl: panel (box-size) [ (load data) ]]
+				;pnl: panel (box-size) [ code (mold/only load data) ]]
 			]
 		]
 	]
-
+    print mold layo
+    
 	;append layo [return pad 20 box 20x2 140.0.0]
 	f-box/pane: blk: layout/offset layo 0x0
 	blk/color: none
@@ -395,6 +397,8 @@ foreach [type data] content [
 		xy: xy + (0x1 * tl/size/y)
 	]
 ]
+
+print mold content
 
 show-page 0
 view/offset main 0x0

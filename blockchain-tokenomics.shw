@@ -23,7 +23,7 @@ What is a blockchain
 
 What are blockchain tokens
 
-What are Smart Contracts and Dapps
+What are Smart Contracts and Dapps (Distributed Apps)
 
 Using these tools to incentivize Open Source development
 
@@ -31,8 +31,11 @@ Challenges and open questions
 
 »
 
-
 === What is a blockchain
+
+Generally, blockchains are a distributed tamper-resistant ledger
+
+Specifically, they are an append-only hash tree 
 
 
 »
@@ -40,13 +43,38 @@ Challenges and open questions
 
 === What are blockchain tokens
 
+We're going to talk only about Ethereum ERC20 tokens today
+
+ERC20 is a standard for tokens on the Ethereum blockchain; an
+interface specification
+
+Tokens are digital assets, which you can think of as coins, 
+points, gold, keys, tickets, IOUs, in-game items, and more
+
+The creator "mints" tokens with a smart contract, and the supply is
+(usually) fixed. The token's contract address holds all the tokens
+at that time.
+
+After that, tokens can be transferred between addresses, exchanged
+for ETH, and all balances are tracked by the blockchain.
 
 »
 
 === What are Smart Contracts and Dapps
 
-The human blockchain project
+Smart contracts are ledger entries containing code. e.g., when we
+create a token contract, we include a `transfer` function that can 
+be called to move tokens between addresses.
 
+The code executed runs on a blockchain's VM, and you pay for every
+instruction executed (with ETH "gas"), which you can limit
+
+Every transaction is recorded on the blockchain
+
+Dapps (Distributed Apps) are just programs that call blockchain
+functions and use blockchain assets
+
+The blockchain provides the "Distributed" part
 
 »
 
@@ -69,9 +97,20 @@ presentations
 
 === Challenges and open questions
 
+How to value contributions
+
+Prevent people from gaming the system
+
+Rewarding automated (non-human contributions)
+
+Facilitating token use in the real world, so tokens have value
+
+
 
 »
 
 
 ###
 
+https://github.com/red/RED-token
+https://github.com/red/RED-token/blob/master/src/REDToken.sol

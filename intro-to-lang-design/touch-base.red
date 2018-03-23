@@ -1,6 +1,9 @@
 Red [
+	author: "Gregg Irwin"
 	purpose: {
-		Define a dialect to specify contact actions [who what when how].
+		Boise Code Camp 2018 Demo
+		
+		Define a dialect to specify contact actions [who what when where how].
 		
 		e.g. send someone a message, or set a reminder for yourself, about some
 		kind of contact related action to take, like sending an email, posting
@@ -24,6 +27,8 @@ reddit: https://www.reddit.com/r/redlang/
 
 set [how who when what where] none
 
+; The '= suffix sigil is just a BNF-like convention I use sometimes
+; to denote parse rules.
 
 how=: [set how ['call | 'email | 'post | 'chat]]
 
