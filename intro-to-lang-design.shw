@@ -1,0 +1,138 @@
+=options view-code
+
+	vh1 font-size 32 "Make Your Own Little Language:^/Intro to Language Design" shadow 2x2
+	pad 0x100
+	vh2 bold font-size 24 "Gregg Irwin (Pointillistic Software)"
+
+=== Who Am I?
+
+Developed software since 1989
+
+Built my first commercial Windows app in 1991
+
+Operational board member of the Red Language Foundation
+
+I prefer human friendly languages, and write a lot of code generators and DSLs
+
+»
+
+
+=== We'll cover...
+
+What makes a language
+
+Why you should make languages of your own
+
+Domain Specific versus General Purpose languages
+
+Embedded DSLs (dialects) versus External DSLs
+
+Lexical analysis, parsing, grammars, syntax, and semantics
+
+Building a simple language
+
+»
+
+
+=== What makes a language
+
+Syntax = What it looks like (the words)
+
+Semantics = What it means (the phrases)
+
+Syntax: Do you have to separate values with whitespace?
+
+Semantics: Does whitespace have meaning, as in python?
+
+Syntax: What characters are allowed in identifiers?
+
+Semantics: Is `++` a prefix or postfix operator?
+
+A grammar is the combination of syntax and semantic rules that define the lanuage
+
+»
+
+
+=== Why you should make languages of your own
+
+“A language that doesn't affect the way you think about programming is not worth knowing.”
+— Alan J. Perlis
+
+“Figure out how you want you write your program, then write the language that lets you do that.”
+— Paraphrased
+
+It helps you when learning new languages; you know what's involved, and it's no longer magic
+
+It helps you sympathize with language, library, and framework designers
+
+»
+
+=== Domain Specific versus General Purpose languages
+
+GPLs let you do anything, and should be Turing complete
+
+DSLs (a.k.a. POLs) are constrained by design; they limit what you can express
+
+Compare `goto`, `while`, `for`, and `foreach`
+
+DSLs may be, but don't have to be, higher level (Red vs Red/System)
+
+DSLs may be entirely declarative
+
+»
+
+=== Embedded DSLs (dialects) versus External DSLs
+
+Embedded DSLs (eDSLs) share the syntax of their host, but not necessarily the semantics
+
+You inherit the host's limits, but also leverage its lexer
+
+External DSLs are built by parsing string inputs however you want
+
+No limits on syntax, but a lot more work; not just coding but also decisions
+
+
+
+»
+
+=== Lexical analysis, parsing, grammars, syntax, and semantics
+
+Lexing (tokenization) and parsing both read inputs and give meaning to them
+
+Lexing occurs at the character level, parsing at the token/symbol level
+
+Lexers produce a stream of tokens, and parsing treats them structurally
+
+Grammars are the rules the language must conform to, to be considered valid
+
+English adjective order [quantity quality size age shape color]
+
+Languages exist for defining grammars [BNF EBNF ABNF PEG RegEx]
+
+Tools exist for processing grammars [Lexx Yacc Bison ANTLR]
+
+»
+
+=== Building a simple language
+
+We'll make it a dialect (eDSL), for ease of development
+
+The host language is Red
+
+Not all host languages are created equal; some are more equal than others
+
+The purpose will be to specify contact actions [who what when how]
+
+Send someone a message, or set a reminder for yourself, about some
+kind of contact related action to take, like sending an email, posting
+a comment on the net, or calling someone on the phone. And you want to
+be able to see what's coming up in some kind of list.
+
+e.g. call Bob on Monday about deadlines
+
+
+»
+
+
+###
+
