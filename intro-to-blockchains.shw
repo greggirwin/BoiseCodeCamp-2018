@@ -32,9 +32,9 @@ Building a toy blockchain, ignoring proof and consensus aspects
 
 === What is a blockchain
 
-Generally, blockchains are a distributed tamper-proof ledger
+Blockchains are a distributed tamper-proof ledger
 
-Technically, they are an append-only hash tree
+Technically, they are decentralized append-only hash trees
 
 More technically, they are a chain of blocks, which each contain batches of
 transactions, that a form Merkle tree; specifics vary, and there are hybrids
@@ -80,13 +80,14 @@ functions and use blockchain assets
 
 The blockchain provides the "Distributed" part
 
-Smart contracts can trigger based on events or conditions, and 
-may access off-blockchain data, called oracles
+Smart contracts can call other smart contracts based on events or 
+conditions, and may access off-blockchain data, called oracles
 
 »
 
 === Building a toy blockchain
 
+The Leggo Block Playchain
 
 »
 
