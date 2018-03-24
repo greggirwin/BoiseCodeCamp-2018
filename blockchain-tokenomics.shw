@@ -29,6 +29,8 @@ What are Smart Contracts and Dapps (Distributed Apps)
 
 Using these tools to incentivize Open Source development
 
+Tokens and Dapps
+
 Challenges and open questions
 
 »
@@ -57,7 +59,7 @@ We're going to talk only about Ethereum ERC20 tokens today
 ERC20 is a standard for tokens on the Ethereum blockchain; an
 interface specification
 
-Tokens are tradeable digital assets, which you can think of as points, 
+Tokens are tradeable digital assets, which you can think of as chips, 
 gold, keys, tickets, IOUs, in-game items, and more
 
 The creator "mints" tokens with a smart contract, and the supply is
@@ -89,32 +91,56 @@ The blockchain provides the "Distributed" part
 
 === Using these tools to incentivize Open Source development
 
-code
+Code Contributions
 
-bug reports
+Bug Reports (good ones) and Tests
 
-docs
+Documentation and Translations
 
-help in chat
+Help in chat
 
-tutorials
+Tutorials and Articles
 
-presentations
+Presentations, Publicity, Conference Organization
+
+Micropayments for module usage
+
+»
+
+
+=== Tokens and Dapps
+
+Buy license tokens, with proceeds feeding back into the Foundation
+
+Donate tokens to support future development, directly in the app
+
+Set up Bounties that people can contribute too, for features or
+fixes, and developers can go after those bounties
+
+You can see someone's reputation, what they've been rewarded for,
+or rewards they've given, on the blockchain
+
+Apps can support direct connections for work between parties, 
+including setting up smart contracts that ensure work will be
+paid for if its done
 
 
 »
+
 
 === Challenges and open questions
 
 How to value contributions
 
+Retroactive Rewards
+
 Prevent people from gaming the system
 
 Rewarding automated (non-human contributions)
 
+Upstream token flow for derivative works
+
 Facilitating token use in the real world, so tokens have value
-
-
 
 »
 
