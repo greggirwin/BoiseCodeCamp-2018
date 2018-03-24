@@ -23,13 +23,15 @@ leggo-block-proto: object [
 
 ;-------------------------------------------------------------------------------
 
-show-hash-calc?: yes
+show-hash-calc?: yes	; for demo purposes, let us turn off hash output at times
+
 
 calc-hash: function [
+	"Calculate the hash for a block, using its contents and an increasing nonce"
 	index [integer!] 
 	stamp [date!] 
 	data 
-	prev-hash [binary!]
+	prev-hash [binary!] "Hash of the previous block in the chain"
 ][
 	hash: clear #{}
 	nonce: 0
@@ -40,24 +42,29 @@ calc-hash: function [
     ]
     
     if show-hash-calc? [
-    	print ["CALC-HASH" tab "Index:" index "Nonce:" nonce "Hash:" mold form-hash/short hash]
+    	print [
+    		"CALC-HASH"
+    		tab "Index:" index
+    		tab "Nonce:" pad/left nonce 5
+    		tab "Hash:"  mold form-hash/short hash
+    	]
     ]
 
     hash
 ]
 
 calc-hash-for-block: func [
-	"calc-hash wrapper, so we can pass just on arg"
+	"Calc-hash wrapper, so we can pass just one arg"
 	blk [object!]
 ][
 	calc-hash blk/index blk/timestamp blk/data blk/prev-hash
 ]
 
 dump-chain: does [
-	print "^/Chain contents:"
-	print "#  Timestamp      Hash         Data"
+	print "^/Chain contents:^/"
+	print "#    Timestamp        Hash          Data"
 	foreach blk main-chain [
-		print [blk/index blk/timestamp/time form-hash/short blk/hash mold blk/data]
+		print [blk/index '| pad blk/timestamp/time 12 '| form-hash/short blk/hash '| mold blk/data]
 	]
 	print ""
 ]
@@ -68,60 +75,68 @@ form-hash: func [
 	/short "Use 0000...FFFF format"
 ][
 	hash: enbase/base hash 16
-	; /short is a bit tricky as each byte is now 2 hex chars,
-	; so to replace 28 of them, we have to change 56 pieces.
-	either short [head change/part at hash 5 "..." 56][hash]
+	either short [
+		; /short is a bit tricky as each byte is now 2 hex chars,
+		; so to replace 28 of them, we have to change 56 pieces.
+		;head change/part at hash 5 "..." 56
+		; This is clearer, though less efficient
+		rejoin [take/part hash 4 "..." take/part/last hash 4]
+	][hash]
 ]
 
 is-block-valid?: function [block prev-block][
 	msg: copy ""
-	;print [mold block mold prev-block]
+	emit: func [str][append msg str]
+
 	if block/index <> (prev-block/index + 1) [
-        append msg "Bad block index. "
+        emit "Bad block index. "
     ]
 	if block/prev-hash <> prev-block/hash [
-        append msg "Bad block previous hash. "
+        emit "Bad block previous hash. "
     ]
 	if block/hash <> calc-hash-for-block block [
-        append msg "Bad block hash. "
+        emit "Bad block hash. "
     ]
 	if not is-hash-valid? block/hash [
-        append msg "Invalid block hash. "
+        emit "Invalid block hash. "
     ]
+
     either empty? msg [true][
     	print [msg ">> Block: " mold block]
     	false
     ]
 ]
 
-is-main-chain-valid?: does [
-	to logic! all [
-		genesis-block = first main-chain
-		chain: next main-chain
-		forall chain [
-			if not is-block-valid? chain/1 chain/-1 [return false]
-			true
-		]
+is-hash-valid?: func [hash [binary!]][
+	all [
+		32 = length? hash
+		0 = first hash					; first on binary! returns integer, not binary!
+		;find/match hash #{0000}		; matching longer prefixes means more work
+		;find/match hash #{00000000}	; ...or MUCH more work
 	]
 ]
 
-is-hash-valid?: func [value [binary!]][
-	all [
-		32 = length? value
-		0 = first value					; first on binary! returns integer, not binary!
-		;find/match value #{0000}		; matching longer prefixes means much more work
-		;find/match value #{00000000}
+is-main-chain-valid?: does [
+	to logic! all [
+		genesis-block = first main-chain
+		(
+			chain: next main-chain
+			forall chain [
+				if not is-block-valid? chain/1 chain/-1 [return false]
+			]
+			true
+		)
 	]
 ]
 
 ;-------------------------------------------------------------------------------
 
 emit-block: func [
-	"Returns true if the block was added to the chain; false otherwise"
+	"Add a block to the main chain; returns true if the block was added, false otherwise"
 	blk [object!]
 	/local res
 ][
-	show-hash-calc?: no
+	show-hash-calc?: no										; disable hash-calc output
 	res: either is-block-valid? blk last main-chain [
 		append main-chain blk
 		yes
@@ -129,12 +144,12 @@ emit-block: func [
 		print "I'm not going to emit an invalid block."
 		no
 	]
-	show-hash-calc?: yes
+	show-hash-calc?: yes									; re-enable hash-calc output
 	res
 ]
 
 add-new-block: function [data][
-    last-blk: last main-chain								; last block in the global blockchain
+    last-blk: last main-chain								; current last block in the global blockchain
     index: last-blk/index + 1
     stamp: now/precise
     emit-block object compose [
@@ -146,7 +161,7 @@ add-new-block: function [data][
     ]
 ]
 
-last-block: does [last main-chain]
+;last-block: does [last main-chain]
 
 ;-------------------------------------------------------------------------------
 
@@ -159,7 +174,6 @@ genesis-block: object [
 ]
 
 main-chain: reduce [genesis-block]						; Global blockchain data is stored here
-
 
 add-new-block "This is my data"
 add-new-block "And this is another block"
