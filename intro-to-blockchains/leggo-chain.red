@@ -1,17 +1,25 @@
 Red [
-	title: "Leggo Block Playchain"
+	author:  "Gregg Irwin"
+	title:   "Leggo Block Playchain"
+	purpose: "Boise Code Camp 2018 Demo"
 ]
 
+; The worst thing about using Red to write a blockchain demo is that Red
+; has a native datatype called a block, which has nothing to do with 
+; blockchain blocks. We could use blocks for blocks, but you're probably
+; all more familiar with objects than blocks, so I'm going to use objects
+; for blocks, rather than blocks, but I will use a block for the entire
+; chain of blocks...er...objects.
 
+; Here's all the information we need for each blockchain block object.
 leggo-block-proto: object [
 	index:       ; integer!					The block number; the genesis block being #1
 	timestamp:   ; date!					When the block was created
-	data:        ; binary! | any-type! ?	The block contents/body
-	hash:        ; binary!					Contains the SHA256 hash of 'data
-	prev-hash:   ; binary!					Contains the hash from the previous block-proto
+	data:        ; binary! | any-type!  	The block contents/body
+	hash:        ; binary!					The SHA256 hash of 'data
+	prev-hash:   ; binary!					The hash from the previous block in the chain
 		none     ; 							Initial value for all words
 ]
-;block-proto-keys: words-of leggo-block-proto
 
 ;-------------------------------------------------------------------------------
 
@@ -108,12 +116,21 @@ is-hash-valid?: func [value [binary!]][
 
 ;-------------------------------------------------------------------------------
 
-emit-block: func [blk [object!]][
-	either is-block-valid? blk last main-chain [
+emit-block: func [
+	"Returns true if the block was added to the chain; false otherwise"
+	blk [object!]
+	/local res
+][
+	show-hash-calc?: no
+	res: either is-block-valid? blk last main-chain [
 		append main-chain blk
+		yes
 	][
 		print "I'm not going to emit an invalid block."
+		no
 	]
+	show-hash-calc?: yes
+	res
 ]
 
 add-new-block: function [data][
@@ -142,6 +159,7 @@ genesis-block: object [
 ]
 
 main-chain: reduce [genesis-block]						; Global blockchain data is stored here
+
 
 add-new-block "This is my data"
 add-new-block "And this is another block"
