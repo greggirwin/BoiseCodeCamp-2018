@@ -1,3 +1,5 @@
+Welcome to Boise Code Camp 2018
+
 =options view-code
 
 	vh1 font-size 32 "Incentivizing Open Source with Blockchain Tokenomics" shadow 2x2
@@ -8,11 +10,11 @@
 
 Developed software since 1989
 
-Built my first commercial Windows app in 1991
+Started learning about blockchains late in 2017
 
 Operational board member of the Red Language Foundation
 
-I prefer human friendly languages, and write a lot of code generators and DSLs
+I wrote a musical about programmers, based on the music of Jonathan Coulton
 
 »
 
@@ -42,7 +44,8 @@ and that the data can't be changed without someone knowing
 On some blockchains we can embed code and call functions; these
 are called smart contracts
 
-
+Some blockchains support the concept of tokens, which are not
+the same as their base currency
 
 »
 
@@ -54,8 +57,8 @@ We're going to talk only about Ethereum ERC20 tokens today
 ERC20 is a standard for tokens on the Ethereum blockchain; an
 interface specification
 
-Tokens are digital assets, which you can think of as coins, 
-points, gold, keys, tickets, IOUs, in-game items, and more
+Tokens are tradeable digital assets, which you can think of as points, 
+gold, keys, tickets, IOUs, in-game items, and more
 
 The creator "mints" tokens with a smart contract, and the supply is
 (usually) fixed. The token's contract address holds all the tokens

@@ -287,7 +287,7 @@ show-page: func [i /local blk shown?][
 			]
 		]
 	]
-    print mold layo
+    ;print mold layo
     
 	;append layo [return pad 20 box 20x2 140.0.0]
 	f-box/pane: blk: layout/offset layo 0x0
@@ -398,7 +398,7 @@ foreach [type data] content [
 	]
 ]
 
-print mold content
+;print mold content
 
 show-page 0
 view/offset main 0x0
