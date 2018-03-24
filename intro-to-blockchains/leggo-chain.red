@@ -184,4 +184,14 @@ print ["^/Is the chain valid? " pick [Yes No] is-main-chain-valid?]
 
 dump-chain
 
+halt
+
+main-chain/2/data: ""
+is-main-chain-valid?
+dump-chain
+
+remove at main-chain 2
+is-main-chain-valid?
+dump-chain
+
 ;show-hash-calc?: yes
