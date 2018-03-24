@@ -33,9 +33,15 @@ Challenges and open questions
 
 === What is a blockchain
 
-Generally, blockchains are a distributed tamper-resistant ledger
+Blockchains are a distributed tamper-proof ledger
 
-Specifically, they are an append-only hash tree 
+Imagine a big spreadsheet where we can track account balances
+and store data, trusting that no single entity is in control
+and that the data can't be changed without someone knowing
+
+On some blockchains we can embed code and call functions; these
+are called smart contracts
+
 
 
 »

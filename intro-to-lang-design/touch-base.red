@@ -10,15 +10,34 @@ Red [
 		a comment on the net, or calling someone on the phone. And you want to
 		be able to see what's coming up in some kind of list.
 	}
-	
+	notes: {
+		Starting out: Describe your language
+		
+		    What do you want to express?
+		    
+		    How do you want to say it?
+		    
+		    What are the things you need to talk about?
+		    
+		    How simple can you keep it?
+		    
+		    What are your anchors (e.g. keywords and delimiters)
+		    
+		Write examples before you write any code.
+		
+		Play with different ideas before trying to make any of it work.
+	}		
 ]
 
 examples: [
 	call @Bob at 12:00 about deadlines .
-	email dave@vop.com on Monday regarding "TopDog contract" .
+	email glt@walt.com on Monday regarding "TopDog contract" .
 	post %news.txt to https://my-blog-host.dom/news on 24-Mar-2018/09:30 .
-	chat on gitter .
+;	chat on gitter .
+;	psst %news.txt to https://my-blog-host.dom/news on 24-Mar-2018/09:30 .
 ]
+
+;-------------------------------------------------------------------------------
 
 gitter: https://gitter.im/red/red
 reddit: https://www.reddit.com/r/redlang/
@@ -41,7 +60,6 @@ weekday=: [
 when=: [
 	'on set when [date! | weekday=]
 	| 'at set when time!
-	;(print [tab '==when when])
 ]
 
 what=: [
@@ -56,18 +74,17 @@ where=: [
 main-rule: [
 	some [
 		(set [how who when what where] none)
-		how= [who= when= what= | opt who= where= opt when=] '. pos: (
-		;how= [opt who= where= opt when= | who= when= what=] '. (
-			;print [how who when what where]
-			;print mold pos
+		how= [who= when= what= | opt who= where= opt when=] '. (
 			switch how [
-				call  [print [when tab "Don't forget to call" who]]
-				email [print [when tab "Email" who "about" what]]
-				post  [print [when "I'll post" mold who  "to" where]]
+				call  [print [when tab "Don't forget to call" who]]		; fire up Skype?
+				email [print [when tab "Email" who "about" what]]		; send who what
+				post  [print [when "I'll post" mold who  "to" where]]	; write where who
 				chat  [browse get where]
 			]
 		)
 	]
 ]
 
-print parse examples main-rule
+res: parse examples main-rule
+
+print [newline "Was the input valid?  " pick [Yes No] res]

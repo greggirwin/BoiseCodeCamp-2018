@@ -6,13 +6,13 @@
 
 === Who Am I?
 
-Developed software since 1989
+I cut my teeth on QuickBASIC
 
 Built my first commercial Windows app in 1991
 
-Operational board member of the Red Language Foundation
+Still have my VB1 diskettes...somewhere
 
-I prefer human friendly languages, and write a lot of code generators and DSLs
+I specialize in Rebol and Red, and have written a lot of code generators and DSLs
 
 »
 
@@ -125,11 +125,9 @@ The purpose will be to specify contact actions [who what when where how]
 
 e.g. call @Bob at 12:00 about deadlines .
 
-e.g. email dave@vop.com on Monday
+e.g. email glt@walt.com on Monday .
 
-e.g. post %news.txt to https://my-blog-host.dom/news
-
-
+e.g. post %news.txt to https://my-blog-host.dom/news .
 
 »
 
